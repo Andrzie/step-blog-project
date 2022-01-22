@@ -10,5 +10,6 @@ class Post(models.Model):
     title = models.CharField(max_length=150)
     text = models.TextField()
     created = models.DateTimeField(default=timezone.now)
-    weather = models.CharField(max_length=3)
+    image = models.ImageField(null=True, blank=True)
+
 # Create your models here.

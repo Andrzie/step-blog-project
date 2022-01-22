@@ -1,0 +1,22 @@
+{% extends 'snblog/base.html'  %}
+ {% block content %}
+
+    {% for post in elems %}
+     <div class="posts">
+         <div class="container">
+             <h1>
+                 <a href="{% url 'post' pk=post.pk %}">
+                     {{post.title}}
+                   <img src="{{ post.image }} " width="20 px">
+                 </a>
+             </h1>
+             <em class="posts_elem">{{post.created}}</em>
+             <p>{{post.text}}</p>
+             <hr/>
+         </div>
+     </div>
+
+
+
+    {% endfor %}
+    {% endblock %}
