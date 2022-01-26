@@ -12,4 +12,35 @@ class Post(models.Model):
     created = models.DateTimeField(default=timezone.now)
     image = models.ImageField(null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comment', on_delete=models.CASCADE)
+    username = models.CharField(max_length=15)
+    text = models.TextField()
+    active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.username
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Create your models here.

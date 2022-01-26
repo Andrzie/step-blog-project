@@ -1,10 +1,36 @@
 
 {% extends 'snblog/base.html'  %}
- {% block content %}
-     <div class="posts d-flex m-5">
-         <div class="container">
-               <h1>{{ elem.text }}</h1>
-             jrtkjtekwrtjuequjq
+{% block content %}
+ <div class="posts d-flex m-5">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1>{{ post.title }}</h1>
+                <p class = " card-text "> {{ post.text }}</p>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<p2 style="text-align:center">Комментарии:</p2>
+
+{% for comment in comments %}
+
+<div class="container">
+    <div class="card">
+         <div class="card-body">
+             <h1>{{ comment.username }}</h1>
+             <p class = " card-text ">{{ comment.text }}</p>
          </div>
      </div>
+<div/>
+
+{% endfor %}
+
+<div class="container">
+    <form action="" method="post">
+        {{ form.as_p}}
+        <input type="submit">
+    </form>
+</div>
  {% endblock %}
