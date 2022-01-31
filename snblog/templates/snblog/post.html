@@ -1,18 +1,19 @@
 
 {% extends 'snblog/base.html'  %}
 {% block content %}
+
  <div class="posts d-flex m-5">
     <div class="container">
         <div class="card">
             <div class="card-body">
-                <h1>{{ post.title }}</h1>
-                <p class = " card-text "> {{ post.text }}</p>
+                <h1>{{ elem.title }}</h1>
+                <p class = " card-text "> {{ elem.text }}</p>
             </div>
         </div>
     </div>
  </div>
 
-<p2 style="text-align:center">Комментарии:</p2>
+<p2 style="text-align:center"><i class="far fa-comments"></i> Комментарии: </p2>
 
 {% for comment in comments %}
 
@@ -22,15 +23,15 @@
              <h1>{{ comment.username }}</h1>
              <p class = " card-text ">{{ comment.text }}</p>
          </div>
-     </div>
-<div/>
+    </div>
+</div>
 
 {% endfor %}
 
 <div class="container">
-    <form action="" method="post">
+    <form action="" method="post">{% csrf_token %}
         {{ form.as_p}}
-        <input type="submit">
+        <input type="submit" class="btn btn-primary">
     </form>
 </div>
  {% endblock %}
